@@ -1,0 +1,87 @@
+<div *ngIf="mobiles;else err" class="container">
+  <div class="headers">
+    <h2 class="table-title bg-primary text-white">Manage Mobiles</h2>
+    <button  type="button" class="btn btn-primary mani" data-bs-toggle="modal" data-bs-target="#exampleModal">ADD Mobile</button>
+
+    <table class="table text-center">
+      <thead>
+        <tr>
+          <th scope="col">Mobile</th>
+          <th scope="col">Price(Rs)</th>
+          <th scope="col">Ram</th>
+          <th scope="col">Storage</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let mobile of mobiles">
+          <th scope="row">{{mobile.name}}</th>
+          <td>{{mobile.price}}</td>
+          <td>{{mobile.Ram}}</td>
+          <td>{{mobile.storage}}</td>
+          <td>
+            <button  type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+            (click)="editMobile(mobile)">EDIT</button>&nbsp;
+            <button class="btn btn-danger" (click)="deleteMobile(mobile.id)" >Delete</button>
+          </td>
+        </tr>
+       
+       
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+  <ng-template #err>
+    <h1>No Mobiles Found</h1>
+  </ng-template>
+
+
+  <!-- Model -->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Mobile Details</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+       
+        <form>
+          <div class="mb-3">
+            <label for="txtname" class="form-label">Mobile</label>
+            <input type="text" formControlName="mobile"  name="mobile" class="form-control" aria-describedby="emailHelp">
+            
+          </div>
+          <div class="mb-3">
+            <label for="txtprice" class="form-label">Price</label>
+            <input type="txt" formControlName="Price"  name="Price" class="form-control" id="exampleInputPassword1">
+          </div>
+
+          <div class="mb-3">
+            <label for="txtram" class="form-label">Ram</label>
+            <input type="txt" formControlName="Ram" name="Ram" class="form-control" id="exampleInputPassword1">
+          </div>
+
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Storage</label>
+            <input type="txt" formControlName="Storage" name="Storage" class="form-control" id="exampleInputPassword1">
+          </div>
+          
+          
+        </form>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+  <!-- Model -->

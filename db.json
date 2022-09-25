@@ -1,0 +1,21 @@
+{
+  "mobiles": [
+    {
+      "id": 1,
+      "name": "vivo",
+      "price": 90,
+      "Ram":4,
+      "storage":16
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
